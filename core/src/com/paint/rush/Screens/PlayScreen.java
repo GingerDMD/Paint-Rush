@@ -3,9 +3,11 @@ package com.paint.rush.Screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -27,6 +29,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.paint.rush.PaintRush;
 import com.paint.rush.Scenes.Hud;
 import com.paint.rush.Sprites.Brush;
+import com.paint.rush.Tools.B2WorldCreator;
 
 import org.w3c.dom.css.Rect;
 
@@ -41,9 +44,13 @@ public class PlayScreen implements Screen{
     private Brush player;
 
     private PaintRush game;
+    private TextureAtlas atlas;
+
     private OrthographicCamera gamecam;
     private Viewport gameport;
     private Hud hud;
+
+    private Music music;
 
     private TmxMapLoader mapLoader;
     private TiledMap map;
@@ -53,6 +60,7 @@ public class PlayScreen implements Screen{
     private Box2DDebugRenderer b2dr;
 
     public PlayScreen(PaintRush game) {
+        atlas = new TextureAtlas("Brush_and_Enemies.atlas");
         this.game = game;
         gamecam = new OrthographicCamera();
         gameport = new FitViewport(PaintRush.V_WIDTH / PaintRush.PPM, PaintRush.V_HEIGHT / PaintRush.PPM, gamecam);
@@ -62,72 +70,17 @@ public class PlayScreen implements Screen{
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PaintRush.PPM);
         gamecam.position.set(gameport.getWorldWidth() / 2, gameport.getWorldHeight() / 2, 0);
 
+        music = Gdx.audio.newMusic(Gdx.files.internal("music.mp3"));
+        music.setVolume(0.4f);
+        music.setLooping(true);
+        music.play();
+
         world = new World(new Vector2(0, -10), true);
         b2dr = new Box2DDebugRenderer();
 
-        player = new Brush(world);
+        new B2WorldCreator(world, map);
 
-        BodyDef bdef = new BodyDef();
-        PolygonShape shape = new PolygonShape();
-        FixtureDef fdef = new FixtureDef();
-        Body body;
-
-        //for ground
-        for (MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / PaintRush.PPM, (rect.getY() + rect.getHeight() / 2) / PaintRush.PPM);
-
-            body = world.createBody(bdef);
-
-            shape.setAsBox((rect.getWidth() / 2)  / PaintRush.PPM, (rect.getHeight() / 2) / PaintRush.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
-
-        //for pipes
-        for (MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)) {
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / PaintRush.PPM, (rect.getY() + rect.getHeight() / 2) / PaintRush.PPM);
-
-            body = world.createBody(bdef);
-
-            shape.setAsBox(rect.getWidth() / 2 / PaintRush.PPM, rect.getHeight() / 2 / PaintRush.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
-
-        //for bricks
-        for (MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)) {
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / PaintRush.PPM, (rect.getY() + rect.getHeight() / 2) / PaintRush.PPM);
-
-            body = world.createBody(bdef);
-
-            shape.setAsBox(rect.getWidth() / 2 / PaintRush.PPM, rect.getHeight() / 2 / PaintRush.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
-
-        //for coins
-        for (MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / PaintRush.PPM, (rect.getY() + rect.getHeight() / 2) / PaintRush.PPM);
-
-            body = world.createBody(bdef);
-
-            shape.setAsBox(rect.getWidth() / 2 / PaintRush.PPM, rect.getHeight() / 2 / PaintRush.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
-
+        player = new Brush(world, this);
 
     }
 
@@ -135,6 +88,8 @@ public class PlayScreen implements Screen{
         handleInput(dt);
 
         world.step(1/60f, 6, 2);
+
+        player.update(dt);
 
         gamecam.position.x = player.b2body.getPosition().x;
 
@@ -155,6 +110,10 @@ public class PlayScreen implements Screen{
 
     }
 
+    public TextureAtlas getAtlas() {
+        return atlas;
+    }
+
     @Override
     public void show() {
 
@@ -169,6 +128,11 @@ public class PlayScreen implements Screen{
         renderer.render();
 
         b2dr.render(world, gamecam.combined);
+
+        game.batch.setProjectionMatrix(gamecam.combined);
+        game.batch.begin();
+        player.draw(game.batch);
+        game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
@@ -196,6 +160,10 @@ public class PlayScreen implements Screen{
 
     @Override
     public void dispose() {
-
+        map.dispose();
+        renderer.dispose();
+        world.dispose();
+        b2dr.dispose();
+        hud.dispose();
     }
 }
