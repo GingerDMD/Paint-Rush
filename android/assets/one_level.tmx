@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="16" height="16" tilewidth="16" tileheight="16" nextobjectid="8">
+ <tileset firstgid="1" source="pr_tiles_1.tsx"/>
+ <layer name="Tile Layer 1" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzjZGBg4AJiRiBmIoHmhOqjFs1PIh7VP6p/OOgnNd9ROx8CAKhZC7k=
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjFQAAAQAAAE=
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1">
+  <object id="2" x="16" y="0" width="240" height="32"/>
+  <object id="3" x="224" y="48" width="32" height="208"/>
+  <object id="4" x="16" y="224" width="224" height="32"/>
+  <object id="5" x="16" y="224"/>
+  <object id="6" x="0" y="0" width="32" height="256"/>
+  <object id="7" x="224" y="0" width="32" height="48"/>
+ </objectgroup>
+</map>

@@ -69,7 +69,7 @@ public class PlayScreen implements Screen{
         gameport = new FitViewport(PaintRush.V_WIDTH / PaintRush.PPM, PaintRush.V_HEIGHT / PaintRush.PPM, gamecam);
         hud = new Hud(game.batch);
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("TS1.tmx");
+        map = mapLoader.load("One.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PaintRush.PPM);
         gamecam.position.set(gameport.getWorldWidth() / 2, gameport.getWorldHeight() / 2, 0);
 

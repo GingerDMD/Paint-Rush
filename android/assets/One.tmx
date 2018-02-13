@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" nextobjectid="1">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" nextobjectid="17">
+ <tileset firstgid="1" source="pr_tiles_1.tsx"/>
  <layer name="Tile Layer 1" width="240" height="13">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20KP6AAAAAAAAAAAAAAAAC+BjDAAAE=
+   eJzt2rEOgCAMRVF008X//1snkqYBBcMrktzhRAeV2PDo0iuldA2wTXC4+xr/jpJdax9UW6Am77OW61uWZjsN+4+l51T1JMeIlPdzy7UlP7P/5y9sjskvVNhf1Bfrom/q5OySX6jQH/S15XyECv1Xg96LCPRfbV05G6FE/9XgXEQE9pmuptQVaiv0356ZLJ8Zm6WITNn1/l5XrG/U/JWaz2CNz7Gfyzo7vtXC15HsItLI+as8b6SejXzylLWe73xdrzS/Cajc9eSoLA==
   </data>
  </layer>
+ <objectgroup name="Object Layer 1">
+  <object id="4" x="0" y="176" width="880" height="32"/>
+  <object id="5" x="0" y="0" width="16" height="176"/>
+  <object id="6" x="16" y="0" width="16" height="176"/>
+  <object id="7" x="32" y="0" width="288" height="48"/>
+  <object id="8" x="336" y="0" width="256" height="32"/>
+  <object id="9" x="320" y="0" width="32" height="16"/>
+  <object id="11" x="320" y="0" width="16" height="32"/>
+  <object id="12" x="592" y="0" width="816" height="32"/>
+  <object id="13" x="880" y="192" width="496" height="16"/>
+  <object id="14" x="880" y="176" width="496" height="32"/>
+  <object id="16" x="1376" y="16" width="32" height="192"/>
+ </objectgroup>
+ <objectgroup name="Object Layer 2"/>
 </map>

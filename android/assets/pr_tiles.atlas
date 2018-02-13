@@ -1,33 +1,33 @@
 
 pr_tiles.png
-size: 128,64
+size: 128,32
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 basic_yellow
   rotate: false
-  xy: 2, 2
+  xy: 96, 16
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 butter_block
   rotate: false
-  xy: 2, 20
+  xy: 0, 0
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 grapesquare
   rotate: false
-  xy: 36, 20
+  xy: 32, 0
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 jamworld2
   rotate: false
-  xy: 70, 20
+  xy: 64, 0
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
