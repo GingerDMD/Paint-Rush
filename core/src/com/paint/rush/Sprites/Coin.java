@@ -18,5 +18,11 @@ import com.paint.rush.PaintRush;
 public class Coin extends InteractiveTileObject {
     public Coin(World world, TiledMap map, Rectangle bounds) {
         super(world, map, bounds);
+        fixture.setUserData(this);
+    }
+
+    @Override
+    public void onHeadHit() {
+
     }
 }

@@ -3,9 +3,11 @@ package com.paint.rush.Sprites;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
+import com.badlogic.gdx.physics.box2d.EdgeShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
@@ -34,7 +36,7 @@ public class Brush extends Sprite {
         defineBrush();
 
         runningRight = true;
-        /*
+
         currentState = State.STANDING;
         prevState = State.STANDING;
         stateTimer = 0;
@@ -53,7 +55,7 @@ public class Brush extends Sprite {
         }
         brushJump = new Animation<TextureRegion>(0.1f, frames);
 
-        */
+
         toastStand = new TextureRegion(getTexture(), 0, 0, 64, 64);
         setBounds(0, 0, 25 / PaintRush.PPM, 25 / PaintRush.PPM);
         setRegion(toastStand);
@@ -72,6 +74,14 @@ public class Brush extends Sprite {
         shape.setRadius(10 / PaintRush.PPM);
         fdef.shape = shape;
         b2body.createFixture(fdef);
+
+        EdgeShape head = new EdgeShape();
+        head.set(new Vector2(-2 / PaintRush.PPM, 8 / PaintRush.PPM),
+                new Vector2(2 / PaintRush.PPM, 8 / PaintRush.PPM));
+        fdef.shape = head;
+        fdef.isSensor = true;
+        b2body.createFixture(fdef).setUserData("head");
+
     }
 
     public State getState() {

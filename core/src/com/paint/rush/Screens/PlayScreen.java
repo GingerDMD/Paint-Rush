@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -30,6 +31,7 @@ import com.paint.rush.PaintRush;
 import com.paint.rush.Scenes.Hud;
 import com.paint.rush.Sprites.Brush;
 import com.paint.rush.Tools.B2WorldCreator;
+import com.paint.rush.Tools.WorldContactListener;
 
 import org.w3c.dom.css.Rect;
 
@@ -59,6 +61,7 @@ public class PlayScreen implements Screen{
     private World world;
     private Box2DDebugRenderer b2dr;
 
+
     public PlayScreen(PaintRush game) {
         atlas = new TextureAtlas("Brush_and_Enemies.atlas");
         this.game = game;
@@ -70,18 +73,18 @@ public class PlayScreen implements Screen{
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PaintRush.PPM);
         gamecam.position.set(gameport.getWorldWidth() / 2, gameport.getWorldHeight() / 2, 0);
 
-        music = Gdx.audio.newMusic(Gdx.files.internal("8bittoastyguy.wav"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("royaltyfreebutterland.mp3"));
         music.setVolume(0.4f);
         music.setLooping(true);
         music.play();
 
-        world = new World(new Vector2(0, -10), true);
+        world = new World(new Vector2(0, 0), true); //gravity is second arg for Vector2
         b2dr = new Box2DDebugRenderer();
 
         new B2WorldCreator(world, map);
 
         player = new Brush(world, this);
-
+        world.setContactListener(new WorldContactListener());
     }
 
     public void update(float dt) {
@@ -98,16 +101,22 @@ public class PlayScreen implements Screen{
     }
 
     public void handleInput(float dt) {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-            player.b2body.applyLinearImpulse(new Vector2(0, 4f), player.b2body.getWorldCenter(), true);
+        player.b2body.setLinearVelocity(1.0f, player.b2body.getLinearVelocity().y);
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            player.b2body.setLinearVelocity(player.b2body.getLinearVelocity().x, 0.9f);
+            //player.b2body.applyLinearImpulse(new Vector2(0, 1f), player.b2body.getWorldCenter(), true);
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2.0) {
-            player.b2body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2body.getWorldCenter(), true);
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+            player.b2body.setLinearVelocity(player.b2body.getLinearVelocity().x, -0.9f);
+            // player.b2body.applyLinearImpulse(new Vector2(0, -1f), player.b2body.getWorldCenter(), true);
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= -2.0) {
-            player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);
+        if (!Gdx.input.isKeyPressed(Input.Keys.DOWN) && !Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            player.b2body.setLinearVelocity(player.b2body.getLinearVelocity().x, -0.0f);
+            // player.b2body.applyLinearImpulse(new Vector2(0, -1f), player.b2body.getWorldCenter(), true);
         }
-
+        if (player.b2body.getLinearVelocity().x == 0.0f) {
+            System.out.println("ded haha");
+        }
     }
 
     public TextureAtlas getAtlas() {
