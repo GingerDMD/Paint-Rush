@@ -57,7 +57,7 @@ public class Brush extends Sprite {
 
 
         toastStand = new TextureRegion(getTexture(), 0, 0, 64, 64);
-        setBounds(0, 0, 25 / PaintRush.PPM, 25 / PaintRush.PPM);
+        setBounds(0, 0, 50 / PaintRush.PPM, 50 / PaintRush.PPM);
         setRegion(toastStand);
 
 
@@ -71,7 +71,7 @@ public class Brush extends Sprite {
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(10 / PaintRush.PPM);
+        shape.setRadius(5 / PaintRush.PPM);
         fdef.shape = shape;
         b2body.createFixture(fdef);
 
