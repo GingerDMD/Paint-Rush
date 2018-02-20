@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" nextobjectid="17">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" nextobjectid="29">
  <tileset firstgid="1" source="pr_tiles_1.tsx"/>
- <layer name="Tile Layer 1" width="240" height="13">
+ <tileset firstgid="17" source="butter_tileset.tsx"/>
+ <layer name="Background" width="240" height="13">
   <data encoding="base64" compression="zlib">
-   eJzt2rEOgCAMRVF008X//1snkqYBBcMrktzhRAeV2PDo0iuldA2wTXC4+xr/jpJdax9UW6Am77OW61uWZjsN+4+l51T1JMeIlPdzy7UlP7P/5y9sjskvVNhf1Bfrom/q5OySX6jQH/S15XyECv1Xg96LCPRfbV05G6FE/9XgXEQE9pmuptQVaiv0356ZLJ8Zm6WITNn1/l5XrG/U/JWaz2CNz7Gfyzo7vtXC15HsItLI+as8b6SejXzylLWe73xdrzS/Cajc9eSoLA==
+   eJztwTEBAAAAwqD1T20KP6AAAAAAAAAAAAAAAAC+BjDAAAE=
   </data>
  </layer>
- <objectgroup name="Object Layer 1">
+ <layer name="Graphics" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJztmskOwjAMRAM3uCC4IHrB//+VFAlLxnKK02ZrmMOT28RZy3SKlGsI4TZzjXAzolXG8VCRk7qWyLnqNrG1bkWOxfeXGfpEAHLzmJk+0WIyolXGUeuoJmeBnKvOi611K3Is1i8F6BeUg3/3lJHWa+oB1jP2BJTk/a13zNgfdbCmVO4F8uG/oAbsv63nESNVW2vaPAvkw39BDXL7b25StbWmzVK+9S7w9K/9lzrYSzAevftvqrZ+tUnNt+rW+C91sJdgPPbsv7G6HvSL/7+gBnv23571y/77vqYO9hGMyT/5L39vU/jWVC79kgDnN0AN9uC/FCFWx/paytdjLI3vKWO4f+m/AJSC/dcTW3J0IvPZA88Kb18e5LlJq7z18wVjw/7riR6ss8i5z0YuITXEHsj3Kf140WPo8tbPF4zNC62qtsk=
+  </data>
+ </layer>
+ <objectgroup name="Ground">
   <object id="4" x="0" y="176" width="880" height="32"/>
   <object id="5" x="0" y="0" width="16" height="176"/>
   <object id="6" x="16" y="0" width="16" height="176"/>
-  <object id="7" x="32" y="0" width="288" height="48"/>
   <object id="8" x="336" y="0" width="256" height="32"/>
   <object id="9" x="320" y="0" width="32" height="16"/>
   <object id="11" x="320" y="0" width="16" height="32"/>
@@ -18,6 +23,17 @@
   <object id="13" x="880" y="192" width="496" height="16"/>
   <object id="14" x="880" y="176" width="496" height="32"/>
   <object id="16" x="1376" y="16" width="32" height="192"/>
+  <object id="21" x="32" y="0" width="288" height="32"/>
  </objectgroup>
- <objectgroup name="Object Layer 2"/>
+ <objectgroup name="Pipes">
+  <object id="22" x="1232" y="48" width="16" height="128"/>
+  <object id="23" x="1152" y="80" width="16" height="96"/>
+  <object id="24" x="1040" y="48" width="16" height="128"/>
+  <object id="25" x="944" y="144" width="16" height="32"/>
+  <object id="26" x="752" y="96" width="16" height="80"/>
+  <object id="27" x="640" y="64" width="16" height="112"/>
+  <object id="28" x="848" y="64" width="16" height="112"/>
+ </objectgroup>
+ <objectgroup name="Coins"/>
+ <objectgroup name="Bricks"/>
 </map>
