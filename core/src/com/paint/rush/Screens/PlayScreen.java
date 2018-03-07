@@ -63,7 +63,7 @@ public class PlayScreen implements Screen{
 
 
     public PlayScreen(PaintRush game) {
-        atlas = new TextureAtlas("Brush_and_Enemies.atlas");
+        atlas = new TextureAtlas("Toastanim.atlas");
         this.game = game;
         gamecam = new OrthographicCamera();
         gameport = new FitViewport(PaintRush.V_WIDTH / PaintRush.PPM, PaintRush.V_HEIGHT / PaintRush.PPM, gamecam);
@@ -73,7 +73,7 @@ public class PlayScreen implements Screen{
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PaintRush.PPM);
         gamecam.position.set(gameport.getWorldWidth() / 2, gameport.getWorldHeight() / 2, 0);
 
-        music = Gdx.audio.newMusic(Gdx.files.internal("royaltyfreebutterland.mp3"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("You_Groove_You_Lose.mp3"));
         music.setVolume(0.4f);
         music.setLooping(true);
         music.play();

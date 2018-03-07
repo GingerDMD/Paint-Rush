@@ -19,7 +19,7 @@ import com.paint.rush.Screens.PlayScreen;
  */
 
 public class Brush extends Sprite {
-    public enum State { FALLING, JUMPING, STANDING, RUNNING };
+    public enum State { FALLING, JUMPING, STANDING, RUNNING, DEAD };
     public State currentState;
     public State prevState;
     public World world;
@@ -29,35 +29,26 @@ public class Brush extends Sprite {
     private Animation<TextureRegion> brushJump;
     private boolean runningRight;
     private float stateTimer;
+    private boolean toastIsDead;
 
     public Brush(World w, PlayScreen screen) {
-        super(screen.getAtlas().findRegion("Toast1"));
+        super(screen.getAtlas().findRegion("Toast0"));
         this.world = w;
         defineBrush();
-
         runningRight = true;
-
         currentState = State.STANDING;
         prevState = State.STANDING;
         stateTimer = 0;
 
-
-
         Array<TextureRegion> frames = new Array<TextureRegion>();
-        for (int i = 1; i < 4; i++) {
+        for (int i = 0; i < 8; i++) {
             frames.add(new TextureRegion(getTexture(), i * 64, 0, 64, 64));
         }
         brushRun = new Animation<TextureRegion>(0.1f, frames);
+        toastStand = new TextureRegion(getTexture(), 0, 0, 64, 64);
         frames.clear();
 
-        for (int i = 4; i < 6; i++) {
-            frames.add(new TextureRegion(getTexture(), i * 64, 0, 64, 64));
-        }
-        brushJump = new Animation<TextureRegion>(0.1f, frames);
-
-
-        toastStand = new TextureRegion(getTexture(), 0, 0, 64, 64);
-        setBounds(0, 0, 50 / PaintRush.PPM, 50 / PaintRush.PPM);
+        setBounds(0, 0, 24 / PaintRush.PPM, 24 / PaintRush.PPM);  // sprite texture size
         setRegion(toastStand);
 
 
@@ -71,13 +62,13 @@ public class Brush extends Sprite {
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(5 / PaintRush.PPM);
+        shape.setRadius(7 / PaintRush.PPM);  // circle hit-box size
         fdef.shape = shape;
         b2body.createFixture(fdef);
 
         EdgeShape head = new EdgeShape();
-        head.set(new Vector2(-2 / PaintRush.PPM, 8 / PaintRush.PPM),
-                new Vector2(2 / PaintRush.PPM, 8 / PaintRush.PPM));
+        head.set(new Vector2(-2 / PaintRush.PPM, 7 / PaintRush.PPM),
+                new Vector2(2 / PaintRush.PPM, 7 / PaintRush.PPM));
         fdef.shape = head;
         fdef.isSensor = true;
         b2body.createFixture(fdef).setUserData("head");
@@ -85,17 +76,11 @@ public class Brush extends Sprite {
     }
 
     public State getState() {
-        if (b2body.getLinearVelocity().y > 0) {
-            return State.JUMPING;
-        }
-        else if (b2body.getLinearVelocity().y < 0) {
-            return State.FALLING;
-        }
-        else if (b2body.getLinearVelocity().x != 0) {
-            return State.RUNNING;
+        if (toastIsDead) {
+            return State.DEAD;
         }
         else {
-            return State.STANDING;
+            return State.RUNNING;
         }
     }
 
@@ -103,14 +88,11 @@ public class Brush extends Sprite {
 
         TextureRegion region;
         region = toastStand;
-        /*
+
         currentState = getState();
 
 
         switch (currentState) {
-            case JUMPING:
-                region = brushJump.getKeyFrame(stateTimer);
-                break;
             case RUNNING:
                 region = brushRun.getKeyFrame(stateTimer, true);
                 break;
@@ -119,7 +101,7 @@ public class Brush extends Sprite {
             default:
                 region = toastStand;
         }
-        */
+
 
         if ((b2body.getLinearVelocity().x < 0 || !runningRight) && !region.isFlipX()) {
             region.flip(true, false);
@@ -130,8 +112,8 @@ public class Brush extends Sprite {
             runningRight = true;
         }
 
-        //stateTimer = currentState == prevState ? stateTimer + dt : 0;
-        //prevState = currentState;
+        stateTimer = currentState == prevState ? stateTimer + dt : 0;
+        prevState = currentState;
         return region;
     }
 

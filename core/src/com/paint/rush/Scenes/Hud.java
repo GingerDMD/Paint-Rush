@@ -47,8 +47,8 @@ public class Hud implements Disposable{
         table.setFillParent(true);
 
         countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        scoreLabel = new Label(String.format("%06d", score), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        timeLabel = new Label("build v0.017", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        scoreLabel = new Label(String.format("%03d", score), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        timeLabel = new Label("build v0.025", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
 
         //table.add(paintLabel).expandX().padTop(10);

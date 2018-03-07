@@ -23,6 +23,6 @@ public class Coin extends InteractiveTileObject {
 
     @Override
     public void onHeadHit() {
-
+        System.out.println("COIN");
     }
 }

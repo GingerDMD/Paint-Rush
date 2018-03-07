@@ -16,6 +16,6 @@ public class Brick extends InteractiveTileObject {
 
     @Override
     public void onHeadHit() {
-
+        System.out.println("BRICK");
     }
 }
