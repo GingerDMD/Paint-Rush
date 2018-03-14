@@ -34,10 +34,10 @@ public class Hud implements Disposable{
     Label timeLabel;
     Label levelLabel;
     Label worldLabel;
-    Label paintLabel;
+    Label brushLabel;
 
     public Hud(SpriteBatch sb) {
-        worldTimer = 300;
+        worldTimer = 0;
         timeCount = 0;
         score = 0;
         viewport = new FitViewport(PaintRush.V_WIDTH, PaintRush.V_HEIGHT, new OrthographicCamera());
@@ -46,15 +46,20 @@ public class Hud implements Disposable{
         table.top();
         table.setFillParent(true);
 
+        brushLabel = new Label("BRUSH", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        worldLabel = new Label("WORLD", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        levelLabel = new Label("LEVEL 1", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         scoreLabel = new Label(String.format("%03d", score), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        timeLabel = new Label("build v0.025", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        timeLabel = new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
 
-        //table.add(paintLabel).expandX().padTop(10);
+        levelLabel.setFontScale(0.5f, 0.5f);
+        countdownLabel.setFontScale(0.5f, 0.5f);
+        table.add(levelLabel).expandX().padTop(5);
         //table.add(worldLabel).expandX().padTop(10);
-        table.add(timeLabel).expandX().padTop(10);
-        table.row();
+        table.add(countdownLabel).expandX().padTop(5);
+        //table.row();
         //table.add(scoreLabel).expandX();
         //table.add(levelLabel).expandX();
         //table.add(countdownLabel).expandX();
@@ -63,6 +68,14 @@ public class Hud implements Disposable{
 
     }
 
+    public void update(float dt) {
+        timeCount += dt;
+        if (timeCount >= 1) {
+            worldTimer++;
+            countdownLabel.setText(String.format("%03d", worldTimer));
+            timeCount = 0;
+        }
+    }
 
     @Override
     public void dispose() {

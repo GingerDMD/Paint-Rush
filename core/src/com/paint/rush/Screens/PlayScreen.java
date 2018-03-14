@@ -30,6 +30,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.paint.rush.PaintRush;
 import com.paint.rush.Scenes.Hud;
 import com.paint.rush.Sprites.Brush;
+import com.paint.rush.Sprites.Butter;
 import com.paint.rush.Tools.B2WorldCreator;
 import com.paint.rush.Tools.WorldContactListener;
 
@@ -44,6 +45,7 @@ import java.awt.Paint;
 public class PlayScreen implements Screen{
 
     private Brush player;
+    private Butter butter;
 
     private PaintRush game;
     private TextureAtlas atlas;
@@ -73,7 +75,7 @@ public class PlayScreen implements Screen{
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PaintRush.PPM);
         gamecam.position.set(gameport.getWorldWidth() / 2, gameport.getWorldHeight() / 2, 0);
 
-        music = Gdx.audio.newMusic(Gdx.files.internal("You_Groove_You_Lose.mp3"));
+        music = PaintRush.manager.get("8bittachanka.mp3", Music.class);
         music.setVolume(0.4f);
         music.setLooping(true);
         music.play();
@@ -81,9 +83,10 @@ public class PlayScreen implements Screen{
         world = new World(new Vector2(0, 0), true); //gravity is second arg for Vector2
         b2dr = new Box2DDebugRenderer();
 
-        new B2WorldCreator(world, map);
+        new B2WorldCreator(this);
 
-        player = new Brush(world, this);
+        player = new Brush(this);
+        butter = new Butter(this, 32 / PaintRush.PPM, 32 / PaintRush.PPM);
         world.setContactListener(new WorldContactListener());
     }
 
@@ -93,6 +96,8 @@ public class PlayScreen implements Screen{
         world.step(1/60f, 6, 2);
 
         player.update(dt);
+        butter.update(dt);
+        hud.update(dt);
 
         gamecam.position.x = player.b2body.getPosition().x;
 
@@ -101,7 +106,7 @@ public class PlayScreen implements Screen{
     }
 
     public void handleInput(float dt) {
-        player.b2body.setLinearVelocity(1.0f, player.b2body.getLinearVelocity().y);
+        player.b2body.setLinearVelocity(0.0f, player.b2body.getLinearVelocity().y);
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             player.b2body.setLinearVelocity(player.b2body.getLinearVelocity().x, 0.9f);
             //player.b2body.applyLinearImpulse(new Vector2(0, 1f), player.b2body.getWorldCenter(), true);
@@ -116,6 +121,14 @@ public class PlayScreen implements Screen{
         }
         if (player.b2body.getLinearVelocity().x == 0.0f) {
             System.out.println("ded haha");
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+            player.b2body.setLinearVelocity(1.5f, player.b2body.getLinearVelocity().y);
+            player.setBrushFrame(0.03f);
+        }
+        if (!Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+            player.b2body.setLinearVelocity(0.0f, player.b2body.getLinearVelocity().y);
+            player.setBrushFrame(0.10f);
         }
     }
 
@@ -141,6 +154,7 @@ public class PlayScreen implements Screen{
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
+        butter.draw(game.batch);
         game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
@@ -150,6 +164,14 @@ public class PlayScreen implements Screen{
     @Override
     public void resize(int width, int height) {
         gameport.update(width, height);
+    }
+
+    public TiledMap getMap() {
+        return map;
+    }
+
+    public World getWorld() {
+        return world;
     }
 
     @Override

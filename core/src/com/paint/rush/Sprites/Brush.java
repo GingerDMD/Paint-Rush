@@ -31,9 +31,9 @@ public class Brush extends Sprite {
     private float stateTimer;
     private boolean toastIsDead;
 
-    public Brush(World w, PlayScreen screen) {
+    public Brush(PlayScreen screen) {
         super(screen.getAtlas().findRegion("Toast0"));
-        this.world = w;
+        this.world = screen.getWorld();
         defineBrush();
         runningRight = true;
         currentState = State.STANDING;
@@ -63,6 +63,12 @@ public class Brush extends Sprite {
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
         shape.setRadius(7 / PaintRush.PPM);  // circle hit-box size
+        fdef.filter.categoryBits = PaintRush.TOAST_BIT;
+        fdef.filter.maskBits = PaintRush.GROUND_BIT |
+                PaintRush.ENEMY_BIT |
+                PaintRush.COIN_BIT |
+                PaintRush.OBJECT_BIT |
+                PaintRush.BRICK_BIT;
         fdef.shape = shape;
         b2body.createFixture(fdef);
 
@@ -115,6 +121,10 @@ public class Brush extends Sprite {
         stateTimer = currentState == prevState ? stateTimer + dt : 0;
         prevState = currentState;
         return region;
+    }
+
+    public void setBrushFrame(float f) {
+        brushRun.setFrameDuration(f);
     }
 
     public void update(float dt) {

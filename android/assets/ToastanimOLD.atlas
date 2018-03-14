@@ -1,37 +1,9 @@
 
 Toastanim.png
-size: 1024,64
+size: 512,64
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-BUTTERDEFEATu
-  rotate: false
-  xy: 512, 0
-  size: 48, 64
-  orig: 48, 64
-  offset: 0, 0
-  index: -1
-BUTTERGUY50u
-  rotate: false
-  xy: 560, 0
-  size: 48, 64
-  orig: 48, 64
-  offset: 0, 0
-  index: -1
-BUTTERGUYMADu
-  rotate: false
-  xy: 608, 0
-  size: 48, 64
-  orig: 48, 64
-  offset: 0, 0
-  index: -1
-BUTTERGUYSADu
-  rotate: false
-  xy: 656, 0
-  size: 48, 64
-  orig: 48, 64
-  offset: 0, 0
-  index: -1
 Toast0
   rotate: false
   xy: 0, 0
