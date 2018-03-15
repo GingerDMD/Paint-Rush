@@ -86,7 +86,7 @@ public class PlayScreen implements Screen{
         new B2WorldCreator(this);
 
         player = new Brush(this);
-        butter = new Butter(this, 32 / PaintRush.PPM, 32 / PaintRush.PPM);
+        butter = new Butter(this, 532 / PaintRush.PPM, 32 / PaintRush.PPM);
         world.setContactListener(new WorldContactListener());
     }
 
@@ -118,9 +118,6 @@ public class PlayScreen implements Screen{
         if (!Gdx.input.isKeyPressed(Input.Keys.DOWN) && !Gdx.input.isKeyPressed(Input.Keys.UP)) {
             player.b2body.setLinearVelocity(player.b2body.getLinearVelocity().x, -0.0f);
             // player.b2body.applyLinearImpulse(new Vector2(0, -1f), player.b2body.getWorldCenter(), true);
-        }
-        if (player.b2body.getLinearVelocity().x == 0.0f) {
-            System.out.println("ded haha");
         }
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
             player.b2body.setLinearVelocity(1.5f, player.b2body.getLinearVelocity().y);
