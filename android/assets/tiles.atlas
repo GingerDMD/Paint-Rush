@@ -1,0 +1,195 @@
+
+tiles.png
+size: 512,128
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+3rdgradersbrownies
+  rotate: false
+  xy: 176, 64
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+BUTTERDEFEATu
+  rotate: false
+  xy: 32, 64
+  size: 48, 64
+  orig: 48, 64
+  offset: 0, 0
+  index: -1
+BUTTERGUY50u
+  rotate: false
+  xy: 32, 0
+  size: 48, 64
+  orig: 48, 64
+  offset: 0, 0
+  index: -1
+BUTTERGUYMADu
+  rotate: false
+  xy: 80, 64
+  size: 48, 64
+  orig: 48, 64
+  offset: 0, 0
+  index: -1
+BUTTERGUYSADu
+  rotate: false
+  xy: 80, 0
+  size: 48, 64
+  orig: 48, 64
+  offset: 0, 0
+  index: -1
+Jam_ drip
+  rotate: false
+  xy: 0, 32
+  size: 32, 96
+  orig: 32, 96
+  offset: 0, 0
+  index: -1
+Jam_ stalactite
+  rotate: false
+  xy: 128, 0
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: -1
+Jam_ stalagtite
+  rotate: false
+  xy: 160, 0
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: -1
+Jam_Corner
+  rotate: false
+  xy: 0, 0
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+Strawberry_jam
+  rotate: false
+  xy: 208, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+boiling_butter
+  rotate: false
+  xy: 240, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+butter_block
+  rotate: false
+  xy: 272, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+checkers
+  rotate: false
+  xy: 496, 112
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+corner_jelly
+  rotate: false
+  xy: 304, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+grapesquare
+  rotate: false
+  xy: 336, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+j_jar
+  rotate: false
+  xy: 176, 80
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+jamman2
+  rotate: false
+  xy: 128, 64
+  size: 48, 64
+  orig: 48, 64
+  offset: 0, 0
+  index: -1
+jamworld2
+  rotate: false
+  xy: 368, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+jelly background
+  rotate: false
+  xy: 400, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+strawberr_border
+  rotate: false
+  xy: 432, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+strawberry-background
+  rotate: false
+  xy: 464, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+strawberry-corner
+  rotate: false
+  xy: 192, 48
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+symettryyellow
+  rotate: false
+  xy: 496, 96
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+topBorder_jelly
+  rotate: false
+  xy: 192, 16
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+topBorder_jelly1
+  rotate: false
+  xy: 224, 64
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+topBorder_jelly2
+  rotate: false
+  xy: 224, 32
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+topBorder_jelly3
+  rotate: false
+  xy: 224, 0
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1

@@ -33,9 +33,9 @@ public class PaintRush extends Game {
 		manager.load("music.mp3", Music.class);
 		manager.load("royaltyfreebutterland.mp3", Music.class);
 		manager.load("You_Groove_You_Lose.mp3", Music.class);
-		manager.load("8bittachanka.mp3", Music.class);
+		manager.load("8bittachankaslightimprove.mp3", Music.class);
 		manager.finishLoading();
-		setScreen(new PlayScreen(this));
+		setScreen(new PlayScreen(this, "One.tmx"));
 	}
 
 	@Override

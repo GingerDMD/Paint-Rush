@@ -33,6 +33,15 @@ import com.paint.rush.Sprites.Brush;
 import com.paint.rush.Sprites.Butter;
 import com.paint.rush.Tools.B2WorldCreator;
 import com.paint.rush.Tools.WorldContactListener;
+import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.paint.rush.Screens.PlayScreen;
 
 import org.w3c.dom.css.Rect;
 
@@ -46,6 +55,7 @@ public class PlayScreen implements Screen{
 
     private Brush player;
     private Butter butter;
+    private Butter butter2;
 
     private PaintRush game;
     private TextureAtlas atlas;
@@ -62,20 +72,22 @@ public class PlayScreen implements Screen{
 
     private World world;
     private Box2DDebugRenderer b2dr;
+    private String currMap;
 
 
-    public PlayScreen(PaintRush game) {
+    public PlayScreen(PaintRush game, String mapString) {
         atlas = new TextureAtlas("Toastanim.atlas");
+        currMap = mapString;
         this.game = game;
         gamecam = new OrthographicCamera();
         gameport = new FitViewport(PaintRush.V_WIDTH / PaintRush.PPM, PaintRush.V_HEIGHT / PaintRush.PPM, gamecam);
         hud = new Hud(game.batch);
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("One.tmx");
+        map = mapLoader.load(mapString);
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PaintRush.PPM);
         gamecam.position.set(gameport.getWorldWidth() / 2, gameport.getWorldHeight() / 2, 0);
 
-        music = PaintRush.manager.get("8bittachanka.mp3", Music.class);
+        music = PaintRush.manager.get("8bittachankaslightimprove.mp3", Music.class);
         music.setVolume(0.4f);
         music.setLooping(true);
         music.play();
@@ -87,6 +99,7 @@ public class PlayScreen implements Screen{
 
         player = new Brush(this);
         butter = new Butter(this, 532 / PaintRush.PPM, 32 / PaintRush.PPM);
+        butter2 = new Butter(this, 3000 / PaintRush.PPM, 32 / PaintRush.PPM);
         world.setContactListener(new WorldContactListener());
     }
 
@@ -97,8 +110,20 @@ public class PlayScreen implements Screen{
 
         player.update(dt);
         butter.update(dt);
+        butter2.update(dt);
         hud.update(dt);
 
+        if (player.b2body.getPosition().x >= 500 / PaintRush.PPM) {
+            game.dispose();
+            if (currMap.equals("One.tmx")) {
+                game.setScreen(new PlayScreen(game, "Two.tmx"));
+            }
+            else
+            {
+                game.setScreen(new PlayScreen(game, "Jam_Map.tmx"));
+            }
+
+        }
         gamecam.position.x = player.b2body.getPosition().x;
 
         gamecam.update();
@@ -152,6 +177,7 @@ public class PlayScreen implements Screen{
         game.batch.begin();
         player.draw(game.batch);
         butter.draw(game.batch);
+        butter2.draw(game.batch);
         game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);

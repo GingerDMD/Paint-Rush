@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="300" height="13" tilewidth="16" tileheight="16" nextobjectid="5">
+ <tileset firstgid="1" source="Tiled.tsx"/>
+ <layer name="Background" width="300" height="13">
+  <data encoding="base64" compression="zlib">
+   eJztw0ENAAAMA6HTW/8CJmMfSFg1VVVVVVVVVVVVVVVVVVXVhwdkNk8z
+  </data>
+ </layer>
+ <layer name="Graphics" width="300" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzt2lEKwjAMgOHeYL2Hgr2H3kSP7wHs3qSsrF0aksD/QcgGI80WyIO4pZS2wcid+9zEaK2ZuNrjqmfPauSDa433G/mOM/1qh/aspWdJ+5Set2IWXmqsnG1v3o+JKJ370sRorZm42uOqZ89qlINrjfcb+Y4z/WqH9qylZ0n7lJ63YhZeaqycbW/e3wQAvrGvAETBvgIQBfsKQAT/v62xrwB4xr4CEAX7CkAU/J8BQBTtvrrVuBtmAD5Z74Y27/vqWeNlmAH4ZL0b2rzvq3eNj2EG4JP1bmjzDwiDlKM=
+  </data>
+ </layer>
+ <objectgroup name="Ground">
+  <object id="1" x="16.7531" y="166.733" width="510.57" height="40.6861"/>
+  <object id="2" x="0" y="-0.797766" width="4799.36" height="11.1687"/>
+  <object id="3" x="4234.54" y="166.733" width="584.763" height="60.6302"/>
+ </objectgroup>
+ <objectgroup name="Pipes"/>
+ <objectgroup name="Coins"/>
+ <objectgroup name="Bricks"/>
+</map>
