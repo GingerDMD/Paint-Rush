@@ -19,4 +19,5 @@
  <objectgroup name="Pipes"/>
  <objectgroup name="Coins"/>
  <objectgroup name="Bricks"/>
+ <objectgroup name="Enemies"/>
 </map>

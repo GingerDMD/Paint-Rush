@@ -9,9 +9,11 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.Array;
 import com.paint.rush.PaintRush;
 import com.paint.rush.Screens.PlayScreen;
 import com.paint.rush.Sprites.Brick;
+import com.paint.rush.Sprites.Butter;
 import com.paint.rush.Sprites.Coin;
 
 /**
@@ -19,6 +21,8 @@ import com.paint.rush.Sprites.Coin;
  */
 
 public class B2WorldCreator {
+    private Array<Butter> butters;
+
     public B2WorldCreator(PlayScreen screen) {
         World world = screen.getWorld();
         TiledMap map = screen.getMap();
@@ -70,5 +74,19 @@ public class B2WorldCreator {
             new Coin(screen, rect);
         }
 
+        //create all enemies
+        butters = new Array<Butter>();
+        for (MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            butters.add(new Butter(screen, rect.getX() / PaintRush.PPM, rect.getY() / PaintRush.PPM));
+        }
+
+
+
+    }
+
+    public Array<Butter> getButters(){
+        return butters;
     }
 }

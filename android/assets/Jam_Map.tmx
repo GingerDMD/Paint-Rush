@@ -68,4 +68,5 @@
  <objectgroup name="Object Layer 3"/>
  <objectgroup name="Object Layer 4"/>
  <objectgroup name="Object Layer 2"/>
+ <objectgroup name="Enemies"/>
 </map>

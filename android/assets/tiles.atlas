@@ -6,37 +6,44 @@ filter: Nearest,Nearest
 repeat: none
 3rdgradersbrownies
   rotate: false
-  xy: 176, 64
+  xy: 256, 32
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 BUTTERDEFEATu
   rotate: false
-  xy: 32, 64
+  xy: 32, 0
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: -1
 BUTTERGUY50u
   rotate: false
-  xy: 32, 0
+  xy: 80, 0
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: -1
 BUTTERGUYMADu
   rotate: false
-  xy: 80, 64
+  xy: 96, 64
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: -1
 BUTTERGUYSADu
   rotate: false
-  xy: 80, 0
+  xy: 128, 0
   size: 48, 64
   orig: 48, 64
+  offset: 0, 0
+  index: -1
+Banana_Man
+  rotate: false
+  xy: 176, 0
+  size: 32, 64
+  orig: 32, 64
   offset: 0, 0
   index: -1
 Jam_ drip
@@ -48,14 +55,14 @@ Jam_ drip
   index: -1
 Jam_ stalactite
   rotate: false
-  xy: 128, 0
+  xy: 192, 64
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: -1
 Jam_ stalagtite
   rotate: false
-  xy: 160, 0
+  xy: 208, 0
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
@@ -67,128 +74,240 @@ Jam_Corner
   orig: 32, 32
   offset: 0, 0
   index: -1
+PBJarLid
+  rotate: false
+  xy: 240, 32
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+PB_Background
+  rotate: false
+  xy: 288, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+PB_Background1
+  rotate: false
+  xy: 320, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+PB_Background2
+  rotate: false
+  xy: 352, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+PB_Corner
+  rotate: false
+  xy: 384, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+PB_Ground
+  rotate: false
+  xy: 416, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+PB_Wall
+  rotate: false
+  xy: 448, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+PB_cool_guy
+  rotate: false
+  xy: 224, 64
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: -1
 Strawberry_jam
   rotate: false
-  xy: 208, 96
+  xy: 480, 96
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 boiling_butter
   rotate: false
-  xy: 240, 96
+  xy: 240, 0
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 butter_block
   rotate: false
-  xy: 272, 96
+  xy: 256, 48
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 checkers
   rotate: false
-  xy: 496, 112
+  xy: 272, 0
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 corner_jelly
   rotate: false
-  xy: 304, 96
+  xy: 288, 64
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 grapesquare
   rotate: false
-  xy: 336, 96
+  xy: 320, 64
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 j_jar
   rotate: false
-  xy: 176, 80
+  xy: 256, 80
   size: 32, 48
   orig: 32, 48
   offset: 0, 0
   index: -1
 jamman2
   rotate: false
-  xy: 128, 64
+  xy: 144, 64
   size: 48, 64
   orig: 48, 64
   offset: 0, 0
   index: -1
 jamworld2
   rotate: false
-  xy: 368, 96
+  xy: 352, 64
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 jelly background
   rotate: false
-  xy: 400, 96
+  xy: 384, 64
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
+pb
+  rotate: false
+  xy: 288, 48
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+peanut_butter
+  rotate: false
+  xy: 416, 64
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+peanutbuttercolors
+  rotate: false
+  xy: 288, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+pinkk
+  rotate: false
+  xy: 368, 16
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+purp
+  rotate: false
+  xy: 32, 64
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+solid_pb
+  rotate: false
+  xy: 368, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+solid_pb2
+  rotate: false
+  xy: 448, 64
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+solid_pb3
+  rotate: false
+  xy: 400, 48
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
 strawberr_border
   rotate: false
-  xy: 432, 96
+  xy: 480, 64
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 strawberry-background
   rotate: false
-  xy: 464, 96
+  xy: 272, 16
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 strawberry-corner
   rotate: false
-  xy: 192, 48
+  xy: 304, 32
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 symettryyellow
   rotate: false
-  xy: 496, 96
+  xy: 384, 16
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 topBorder_jelly
   rotate: false
-  xy: 192, 16
+  xy: 304, 0
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 topBorder_jelly1
   rotate: false
-  xy: 224, 64
+  xy: 336, 32
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 topBorder_jelly2
   rotate: false
-  xy: 224, 32
+  xy: 336, 0
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 topBorder_jelly3
   rotate: false
-  xy: 224, 0
+  xy: 368, 32
   size: 32, 32
   orig: 32, 32
   offset: 0, 0

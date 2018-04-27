@@ -41,13 +41,14 @@ public class WorldContactListener implements ContactListener {
                 else {
                     ((Enemy)fixB.getUserData()).reverseVelocity(true, false);
                 }
+            case PaintRush.TOAST_BIT | PaintRush.ENEMY_BIT:
+                Gdx.app.log("DIE TOAST", "Die");
                 break;
         }
     }
 
     @Override
     public void endContact(Contact contact) {
-        Gdx.app.log("end contact", "");
 
     }
 

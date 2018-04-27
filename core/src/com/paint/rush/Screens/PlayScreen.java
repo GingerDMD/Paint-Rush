@@ -31,6 +31,7 @@ import com.paint.rush.PaintRush;
 import com.paint.rush.Scenes.Hud;
 import com.paint.rush.Sprites.Brush;
 import com.paint.rush.Sprites.Butter;
+import com.paint.rush.Sprites.Enemy;
 import com.paint.rush.Tools.B2WorldCreator;
 import com.paint.rush.Tools.WorldContactListener;
 import com.badlogic.gdx.ApplicationAdapter;
@@ -54,8 +55,6 @@ import java.awt.Paint;
 public class PlayScreen implements Screen{
 
     private Brush player;
-    private Butter butter;
-    private Butter butter2;
 
     private PaintRush game;
     private TextureAtlas atlas;
@@ -72,10 +71,11 @@ public class PlayScreen implements Screen{
 
     private World world;
     private Box2DDebugRenderer b2dr;
+    private B2WorldCreator creator;
     private String currMap;
 
 
-    public PlayScreen(PaintRush game, String mapString) {
+    public PlayScreen(PaintRush game, String mapString, String musicName) {
         atlas = new TextureAtlas("Toastanim.atlas");
         currMap = mapString;
         this.game = game;
@@ -87,7 +87,7 @@ public class PlayScreen implements Screen{
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PaintRush.PPM);
         gamecam.position.set(gameport.getWorldWidth() / 2, gameport.getWorldHeight() / 2, 0);
 
-        music = PaintRush.manager.get("8bittachankaslightimprove.mp3", Music.class);
+        music = PaintRush.manager.get(musicName, Music.class);
         music.setVolume(0.4f);
         music.setLooping(true);
         music.play();
@@ -95,11 +95,9 @@ public class PlayScreen implements Screen{
         world = new World(new Vector2(0, 0), true); //gravity is second arg for Vector2
         b2dr = new Box2DDebugRenderer();
 
-        new B2WorldCreator(this);
+        creator = new B2WorldCreator(this);
 
         player = new Brush(this);
-        butter = new Butter(this, 532 / PaintRush.PPM, 32 / PaintRush.PPM);
-        butter2 = new Butter(this, 3000 / PaintRush.PPM, 32 / PaintRush.PPM);
         world.setContactListener(new WorldContactListener());
     }
 
@@ -109,18 +107,20 @@ public class PlayScreen implements Screen{
         world.step(1/60f, 6, 2);
 
         player.update(dt);
-        butter.update(dt);
-        butter2.update(dt);
+        for (Enemy enemy : creator.getButters()) {
+            enemy.update(dt);
+        }
         hud.update(dt);
 
-        if (player.b2body.getPosition().x >= 500 / PaintRush.PPM) {
+        if (player.b2body.getPosition().x >= 1500 / PaintRush.PPM) {
+            music.dispose();
             game.dispose();
             if (currMap.equals("One.tmx")) {
-                game.setScreen(new PlayScreen(game, "Two.tmx"));
+                game.setScreen(new PlayScreen(game, "Two.tmx", "8bittoastyguy.wav"));
             }
             else
             {
-                game.setScreen(new PlayScreen(game, "Jam_Map.tmx"));
+                game.setScreen(new PlayScreen(game, "Jam_Map.tmx", "8bittachankaslightimprove.mp3"));
             }
 
         }
@@ -176,8 +176,9 @@ public class PlayScreen implements Screen{
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
-        butter.draw(game.batch);
-        butter2.draw(game.batch);
+        for (Enemy enemy : creator.getButters()) {
+            enemy.draw(game.batch);
+        }
         game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);

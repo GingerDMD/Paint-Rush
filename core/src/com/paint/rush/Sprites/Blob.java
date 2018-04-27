@@ -13,14 +13,13 @@ import com.badlogic.gdx.utils.Array;
 import com.paint.rush.PaintRush;
 import com.paint.rush.Screens.PlayScreen;
 
-import java.util.Random;
 import java.util.Timer;
 
 /**
- * Created by preston on 3/14/18.
+ * Created by preston on 4/27/18.
  */
 
-public class Butter extends Enemy {
+public class Blob extends Enemy {
 
     private float stateTime;
     private float revTime;
@@ -28,23 +27,10 @@ public class Butter extends Enemy {
     private Array<TextureRegion> frames;
     private int timeCount;
 
-    public Butter(PlayScreen screen, float x, float y) {
+    public Blob(PlayScreen screen, float x, float y) {
         super(screen, x, y);
         frames = new Array<TextureRegion>();
-        Random r = new Random();
-        int num = r.nextInt(4);
-        if (num == 0) {
-            frames.add(new TextureRegion(screen.getAtlas().findRegion("BUTTERDEFEATu"), 0, 0, 48, 64));
-        }
-        else if (num == 1) {
-            frames.add(new TextureRegion(screen.getAtlas().findRegion("BUTTERGUY50u"), 0, 0, 48, 64));
-        }
-        else if (num == 2) {
-            frames.add(new TextureRegion(screen.getAtlas().findRegion("BUTTERGUYMADu"), 0, 0, 48, 64));
-        }
-        else if (num == 3) {
-            frames.add(new TextureRegion(screen.getAtlas().findRegion("BUTTERGUYSADu"), 0, 0, 48, 64));
-        }
+        frames.add(new TextureRegion(screen.getAtlas().findRegion("BUTTERDEFEATu"), 0, 0, 48, 64));
         walkAnimation = new Animation<TextureRegion>(0.4f, frames);
         stateTime = 0;
         revTime = 0;
