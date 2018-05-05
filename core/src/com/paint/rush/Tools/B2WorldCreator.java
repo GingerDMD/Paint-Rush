@@ -12,24 +12,31 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.paint.rush.PaintRush;
 import com.paint.rush.Screens.PlayScreen;
+import com.paint.rush.Sprites.BigBlob;
+import com.paint.rush.Sprites.Blob;
 import com.paint.rush.Sprites.Brick;
 import com.paint.rush.Sprites.Butter;
 import com.paint.rush.Sprites.Coin;
+import com.paint.rush.Sprites.Droplet;
+import com.paint.rush.Sprites.Enemy;
+import com.paint.rush.Sprites.PBGuy;
 
 /**
  * Created by preston on 12/1/17.
  */
 
 public class B2WorldCreator {
-    private Array<Butter> butters;
+    private Array<Enemy> enemies;
+    private Array<Enemy> enemiesTwo;
 
-    public B2WorldCreator(PlayScreen screen) {
+    public B2WorldCreator(PlayScreen screen, String mapName) {
         World world = screen.getWorld();
         TiledMap map = screen.getMap();
         BodyDef bdef = new BodyDef();
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
         Body body;
+
 
         //for ground
         for (MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
@@ -44,6 +51,7 @@ public class B2WorldCreator {
             fdef.shape = shape;
             body.createFixture(fdef);
         }
+
 
         //for pipes
         for (MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)) {
@@ -75,18 +83,43 @@ public class B2WorldCreator {
         }
 
         //create all enemies
-        butters = new Array<Butter>();
+        enemies = new Array<Enemy>();
         for (MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            if (mapName.equals("One.tmx")) {
+                enemies.add(new Butter(screen, rect.getX() / PaintRush.PPM, rect.getY() / PaintRush.PPM));
+            }
+            else if (mapName.equals("Two.tmx")) {
+                enemies.add(new Blob(screen, rect.getX() / PaintRush.PPM, rect.getY() / PaintRush.PPM));
+            }
+            else if (mapName.equals("PB_Map.tmx")) {
+                enemies.add(new PBGuy(screen, rect.getX() / PaintRush.PPM, rect.getY() / PaintRush.PPM));
+            }
+        }
 
-            butters.add(new Butter(screen, rect.getX() / PaintRush.PPM, rect.getY() / PaintRush.PPM));
+        enemiesTwo = new Array<Enemy>();
+        for (MapObject object : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            if (mapName.equals("One.tmx")) {
+                enemies.add(new Butter(screen, rect.getX() / PaintRush.PPM, rect.getY() / PaintRush.PPM));
+            }
+            else if (mapName.equals("Two.tmx")) {
+                enemies.add(new BigBlob(screen, rect.getX() / PaintRush.PPM, rect.getY() / PaintRush.PPM));
+            }
+            else if (mapName.equals("PB_Map.tmx")) {
+                enemies.add(new Droplet(screen, rect.getX() / PaintRush.PPM, rect.getY() / PaintRush.PPM));
+            }
         }
 
 
 
     }
 
-    public Array<Butter> getButters(){
-        return butters;
+    public Array<Enemy> getButters(){
+        return enemies;
+    }
+
+    public Array<Enemy> getMoreEnemies() {
+        return  enemiesTwo;
     }
 }

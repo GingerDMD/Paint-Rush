@@ -49,14 +49,12 @@ public class Hud implements Disposable{
         brushLabel = new Label("BRUSH", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         worldLabel = new Label("WORLD", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         levelLabel = new Label("LEVEL 1", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        countdownLabel = new Label(String.format("%02d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         scoreLabel = new Label(String.format("%03d", score), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         timeLabel = new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
 
-        levelLabel.setFontScale(0.5f, 0.5f);
-        countdownLabel.setFontScale(0.5f, 0.5f);
-        table.add(levelLabel).expandX().padTop(5);
+        countdownLabel.setFontScale(1f, 1f);
         //table.add(worldLabel).expandX().padTop(10);
         table.add(countdownLabel).expandX().padTop(5);
         //table.row();
@@ -64,7 +62,7 @@ public class Hud implements Disposable{
         //table.add(levelLabel).expandX();
         //table.add(countdownLabel).expandX();
 
-        stage.addActor(table);
+        //stage.addActor(table);
 
     }
 
@@ -72,7 +70,7 @@ public class Hud implements Disposable{
         timeCount += dt;
         if (timeCount >= 1) {
             worldTimer++;
-            countdownLabel.setText(String.format("%03d", worldTimer));
+            countdownLabel.setText(String.format("%02d", worldTimer));
             timeCount = 0;
         }
     }

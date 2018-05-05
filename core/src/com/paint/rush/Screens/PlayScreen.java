@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -64,6 +65,7 @@ public class PlayScreen implements Screen{
     private Hud hud;
 
     private Music music;
+    private Sound butterTime;
 
     private TmxMapLoader mapLoader;
     private TiledMap map;
@@ -86,16 +88,27 @@ public class PlayScreen implements Screen{
         map = mapLoader.load(mapString);
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PaintRush.PPM);
         gamecam.position.set(gameport.getWorldWidth() / 2, gameport.getWorldHeight() / 2, 0);
-
+        if (mapString.equals("One.tmx")) {
+            butterTime = PaintRush.manager.get("Butter_Time_deep.wav", Sound.class);
+            butterTime.play();
+        }
+        else if (mapString.equals("Two.tmx")) {
+            butterTime = PaintRush.manager.get("Jam_Up_deep.wav", Sound.class);
+            butterTime.play();
+        }
+        else if (mapString.equals("PB_Map.tmx")) {
+            butterTime = PaintRush.manager.get("Nutty_deep.wav", Sound.class);
+            butterTime.play();
+        }
         music = PaintRush.manager.get(musicName, Music.class);
-        music.setVolume(0.4f);
+        music.setVolume(0.20f);
         music.setLooping(true);
-        music.play();
+
 
         world = new World(new Vector2(0, 0), true); //gravity is second arg for Vector2
         b2dr = new Box2DDebugRenderer();
 
-        creator = new B2WorldCreator(this);
+        creator = new B2WorldCreator(this, mapString);
 
         player = new Brush(this);
         world.setContactListener(new WorldContactListener());
@@ -110,17 +123,52 @@ public class PlayScreen implements Screen{
         for (Enemy enemy : creator.getButters()) {
             enemy.update(dt);
         }
+        for (Enemy enemy : creator.getMoreEnemies()) {
+            enemy.update(dt);
+        }
         hud.update(dt);
+        if (player.b2body.getPosition().x >= 600 / PaintRush.PPM) {
+            music.play();
+        }
+        if (player.b2body.getPosition().x >= 2500 / PaintRush.PPM) {
+            music.setVolume(0.20f);
+        }
+        if (player.b2body.getPosition().x >= 2600 / PaintRush.PPM) {
+            music.setVolume(0.19f);
+        }
+        if (player.b2body.getPosition().x >= 2700 / PaintRush.PPM) {
+            music.setVolume(0.17f);
+        }
+        if (player.b2body.getPosition().x >= 2800 / PaintRush.PPM) {
+            music.setVolume(0.15f);
+        }
+        if (player.b2body.getPosition().x >= 2900 / PaintRush.PPM) {
+            music.setVolume(0.12f);
+        }
+        if (player.b2body.getPosition().x >= 3000 / PaintRush.PPM) {
+            music.setVolume(0.08f);
+        }
+        if (player.b2body.getPosition().x >= 3100 / PaintRush.PPM) {
+            music.setVolume(0.04f);
+        }
+        if (player.b2body.getPosition().x >= 3200 / PaintRush.PPM) {
+            music.setVolume(0.02f);
+        }
+        if (player.b2body.getPosition().x >= 3300 / PaintRush.PPM) {
+            music.setVolume(0.0f);
+        }
 
-        if (player.b2body.getPosition().x >= 1500 / PaintRush.PPM) {
+        if (player.b2body.getPosition().x >= 3600 / PaintRush.PPM) {
             music.dispose();
             game.dispose();
             if (currMap.equals("One.tmx")) {
-                game.setScreen(new PlayScreen(game, "Two.tmx", "8bittoastyguy.wav"));
+                game.setScreen(new PlayScreen(game, "Two.tmx", "oopsiepoopsie.mp3"));
             }
-            else
-            {
-                game.setScreen(new PlayScreen(game, "Jam_Map.tmx", "8bittachankaslightimprove.mp3"));
+            else if (currMap.equals("Two.tmx")) {
+                game.setScreen(new PlayScreen(game, "PB_Map.tmx", "8bittoastyguy.wav"));
+            }
+            else {
+                game.setScreen(new PlayScreen(game, "One.tmx", "8bittachankaslightimprove.mp3"));
             }
 
         }
@@ -131,7 +179,7 @@ public class PlayScreen implements Screen{
     }
 
     public void handleInput(float dt) {
-        player.b2body.setLinearVelocity(0.0f, player.b2body.getLinearVelocity().y);
+        player.b2body.setLinearVelocity(0.75f, player.b2body.getLinearVelocity().y);
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             player.b2body.setLinearVelocity(player.b2body.getLinearVelocity().x, 0.9f);
             //player.b2body.applyLinearImpulse(new Vector2(0, 1f), player.b2body.getWorldCenter(), true);
@@ -149,7 +197,7 @@ public class PlayScreen implements Screen{
             player.setBrushFrame(0.03f);
         }
         if (!Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
-            player.b2body.setLinearVelocity(0.0f, player.b2body.getLinearVelocity().y);
+            player.b2body.setLinearVelocity(1f, player.b2body.getLinearVelocity().y);
             player.setBrushFrame(0.10f);
         }
     }
@@ -169,6 +217,7 @@ public class PlayScreen implements Screen{
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+
         renderer.render();
 
         b2dr.render(world, gamecam.combined);
@@ -177,6 +226,9 @@ public class PlayScreen implements Screen{
         game.batch.begin();
         player.draw(game.batch);
         for (Enemy enemy : creator.getButters()) {
+            enemy.draw(game.batch);
+        }
+        for (Enemy enemy : creator.getMoreEnemies()) {
             enemy.draw(game.batch);
         }
         game.batch.end();

@@ -56,13 +56,13 @@ public class Brush extends Sprite {
 
     public void defineBrush() {
         BodyDef bdef = new BodyDef();
-        bdef.position.set(32 / PaintRush.PPM + 3f, 32 / PaintRush.PPM);
+        bdef.position.set(32 / PaintRush.PPM + 2.2f, 105 / PaintRush.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bdef);
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(7 / PaintRush.PPM);  // circle hit-box size
+        shape.setRadius(5 / PaintRush.PPM);  // circle hit-box size
         fdef.filter.categoryBits = PaintRush.TOAST_BIT;
         fdef.filter.maskBits = PaintRush.GROUND_BIT |
                 PaintRush.ENEMY_BIT |

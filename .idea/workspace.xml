@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdc2fb17-7724-4db3-808f-9a55bd9fc47a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Blob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/tiles.png" afterPath="$PROJECT_DIR$/android/assets/tiles.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/BigBlob.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Droplet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/PBGuy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/Toastanim.png" afterPath="$PROJECT_DIR$/android/assets/Toastanim.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/Jam_Map.tmx" afterPath="$PROJECT_DIR$/android/assets/Jam_Map.tmx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/One.tmx" afterPath="$PROJECT_DIR$/android/assets/One.tmx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/Toastanim.atlas" afterPath="$PROJECT_DIR$/android/assets/Toastanim.atlas" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/Two.tmx" afterPath="$PROJECT_DIR$/android/assets/Two.tmx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/tiles.atlas" afterPath="$PROJECT_DIR$/android/assets/tiles.atlas" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/paint/rush/PaintRush.java" afterPath="$PROJECT_DIR$/core/src/com/paint/rush/PaintRush.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/paint/rush/Scenes/Hud.java" afterPath="$PROJECT_DIR$/core/src/com/paint/rush/Scenes/Hud.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/paint/rush/Screens/PlayScreen.java" afterPath="$PROJECT_DIR$/core/src/com/paint/rush/Screens/PlayScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Blob.java" afterPath="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Blob.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Brush.java" afterPath="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Brush.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Butter.java" afterPath="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Butter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Enemy.java" afterPath="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Enemy.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/paint/rush/Tools/B2WorldCreator.java" afterPath="$PROJECT_DIR$/core/src/com/paint/rush/Tools/B2WorldCreator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/paint/rush/Tools/WorldContactListener.java" afterPath="$PROJECT_DIR$/core/src/com/paint/rush/Tools/WorldContactListener.java" />
     </list>
@@ -47,11 +49,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PlayScreen.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlayScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Screens/PlayScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="179" column="35" selection-start-line="179" selection-start-column="35" selection-end-line="179" selection-end-column="35" />
+            <state relative-caret-position="218">
+              <caret line="136" column="32" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,21 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Enemy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Blob.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Blob.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+            <state relative-caret-position="188">
+              <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -82,8 +74,8 @@
       <file leaf-file-name="PaintRush.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/PaintRush.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="37" column="81" selection-start-line="37" selection-start-column="81" selection-end-line="37" selection-end-column="81" />
+            <state relative-caret-position="208">
+              <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,11 +83,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Butter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BigBlob.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/BigBlob.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Butter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Butter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+            <state relative-caret-position="158">
+              <caret line="75" column="80" selection-start-line="75" selection-start-column="80" selection-end-line="75" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -104,8 +106,8 @@
       <file leaf-file-name="WorldContactListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Tools/WorldContactListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="50" column="45" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
+            <state relative-caret-position="308">
+              <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,25 +118,9 @@
       <file leaf-file-name="InteractiveTileObject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/InteractiveTileObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="38">
               <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Hud.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Scenes/Hud.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="74" column="51" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#2694#2695#0" expanded="false" />
-                <element signature="e#2725#2726#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -142,13 +128,21 @@
       <file leaf-file-name="B2WorldCreator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Tools/B2WorldCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+            <state relative-caret-position="248">
+              <caret line="109" column="40" selection-start-line="109" selection-start-column="40" selection-end-line="109" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3289#3290#0" expanded="true" />
-                <element signature="e#3319#3320#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Droplet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Droplet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="68" column="41" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,11 +150,10 @@
       <file leaf-file-name="Brush.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Brush.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+            <state relative-caret-position="173">
+              <caret line="64" column="67" selection-start-line="64" selection-start-column="67" selection-end-line="64" selection-end-column="67" />
               <folding>
-                <element signature="e#3973#3974#0" expanded="false" />
-                <element signature="e#4017#4018#0" expanded="false" />
+                <element signature="e#1433#1448#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2428,26 +2421,29 @@
       <list>
         <option value="$PROJECT_DIR$/desktop/src/com/paint/rush/desktop/DesktopLauncher.java" />
         <option value="$PROJECT_DIR$/core/src/com/paint/rush/Screens/GameOverScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/com/paint/rush/Scenes/Hud.java" />
         <option value="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Brick.java" />
         <option value="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Coin.java" />
         <option value="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/InteractiveTileObject.java" />
         <option value="$PROJECT_DIR$/core/src/com/paint/rush/Screens/PurpleScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Brush.java" />
-        <option value="$PROJECT_DIR$/core/src/com/paint/rush/PaintRush.java" />
-        <option value="$PROJECT_DIR$/core/src/com/paint/rush/Tools/WorldContactListener.java" />
-        <option value="$PROJECT_DIR$/core/src/com/paint/rush/Tools/B2WorldCreator.java" />
-        <option value="$PROJECT_DIR$/core/src/com/paint/rush/Screens/PlayScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Enemy.java" />
+        <option value="$PROJECT_DIR$/core/src/com/paint/rush/Tools/WorldContactListener.java" />
+        <option value="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/PBGuy.java" />
+        <option value="$PROJECT_DIR$/core/src/com/paint/rush/Scenes/Hud.java" />
         <option value="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Blob.java" />
         <option value="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Butter.java" />
+        <option value="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/BigBlob.java" />
+        <option value="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Brush.java" />
+        <option value="$PROJECT_DIR$/core/src/com/paint/rush/Tools/B2WorldCreator.java" />
+        <option value="$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Droplet.java" />
+        <option value="$PROJECT_DIR$/core/src/com/paint/rush/PaintRush.java" />
+        <option value="$PROJECT_DIR$/core/src/com/paint/rush/Screens/PlayScreen.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1260" />
-    <option name="height" value="661" />
+    <option name="height" value="715" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -2484,6 +2480,24 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Paint-Rush" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Paint-Rush" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="desktop" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="desktop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2678,6 +2692,9 @@
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="2.2.0" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.paint.rush.Sprites" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/android/assets" />
     </key>
@@ -3021,7 +3038,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1260" height="661" extended-state="0" />
+    <frame x="0" y="23" width="1260" height="715" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -3032,7 +3049,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32844037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29883137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3069,44 +3086,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Brush.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
-          <folding>
-            <element signature="e#3973#3974#0" expanded="false" />
-            <element signature="e#4017#4018#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/desktop/src/com/paint/rush/desktop/DesktopLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/PaintRush.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Screens/PlayScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Tools/WorldContactListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -3156,8 +3135,6 @@
           <caret line="66" column="9" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3289#3290#0" expanded="true" />
-            <element signature="e#3319#3320#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3166,11 +3143,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2694#2695#0" expanded="false" />
-            <element signature="e#2725#2726#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3179,8 +3152,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3973#3974#0" expanded="false" />
-            <element signature="e#4017#4018#0" expanded="false" />
+            <element signature="e#1433#1448#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3261,8 +3233,6 @@
           <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3289#3290#0" expanded="true" />
-            <element signature="e#3319#3320#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3272,8 +3242,7 @@
         <state relative-caret-position="1395">
           <caret line="105" column="10" selection-start-line="105" selection-start-column="10" selection-end-line="105" selection-end-column="10" />
           <folding>
-            <element signature="e#3973#3974#0" expanded="false" />
-            <element signature="e#4017#4018#0" expanded="false" />
+            <element signature="e#1433#1448#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3282,11 +3251,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2694#2695#0" expanded="false" />
-            <element signature="e#2725#2726#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3356,8 +3321,6 @@
           <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3289#3290#0" expanded="true" />
-            <element signature="e#3319#3320#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3367,8 +3330,7 @@
         <state relative-caret-position="1260">
           <caret line="94" column="28" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="28" />
           <folding>
-            <element signature="e#3973#3974#0" expanded="false" />
-            <element signature="e#4017#4018#0" expanded="false" />
+            <element signature="e#1433#1448#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3377,11 +3339,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2694#2695#0" expanded="false" />
-            <element signature="e#2725#2726#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3449,25 +3407,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Coin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-          <folding>
-            <element signature="e#821#822#0" expanded="false" />
-            <element signature="e#869#870#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Screens/PurpleScreen.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Screens/GameOverScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Coin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3475,110 +3428,129 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#500#501#0" expanded="false" />
-            <element signature="e#549#550#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/InteractiveTileObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Scenes/Hud.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="74" column="51" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2694#2695#0" expanded="false" />
-            <element signature="e#2725#2726#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Brush.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-          <folding>
-            <element signature="e#3973#3974#0" expanded="false" />
-            <element signature="e#4017#4018#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/PaintRush.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="37" column="81" selection-start-line="37" selection-start-column="81" selection-end-line="37" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Tools/WorldContactListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="50" column="45" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Tools/B2WorldCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3289#3290#0" expanded="true" />
-            <element signature="e#3319#3320#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Screens/PlayScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="179" column="35" selection-start-line="179" selection-start-column="35" selection-end-line="179" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="407">
+          <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Enemy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+        <state relative-caret-position="143">
+          <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Blob.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/PBGuy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+        <state relative-caret-position="98">
+          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Butter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+        <state relative-caret-position="158">
+          <caret line="75" column="80" selection-start-line="75" selection-start-column="80" selection-end-line="75" selection-end-column="80" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Brush.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="64" column="67" selection-start-line="64" selection-start-column="67" selection-end-line="64" selection-end-column="67" />
+          <folding>
+            <element signature="e#1433#1448#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Dropelt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/InteractiveTileObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Tools/B2WorldCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="109" column="40" selection-start-line="109" selection-start-column="40" selection-end-line="109" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Droplet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="68" column="41" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/Blob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Sprites/BigBlob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Tools/WorldContactListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/PaintRush.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/paint/rush/Screens/PlayScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="136" column="32" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

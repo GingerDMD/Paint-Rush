@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
@@ -13,6 +14,7 @@ import com.badlogic.gdx.utils.Array;
 import com.paint.rush.PaintRush;
 import com.paint.rush.Screens.PlayScreen;
 
+import java.util.Random;
 import java.util.Timer;
 
 /**
@@ -26,26 +28,47 @@ public class Blob extends Enemy {
     private Animation<TextureRegion> walkAnimation;
     private Array<TextureRegion> frames;
     private int timeCount;
+    private int status;
+    private Vector2 blobVelocity;
+    Random r;
 
     public Blob(PlayScreen screen, float x, float y) {
         super(screen, x, y);
+        r = new Random();
+        status = r.nextInt(2);
         frames = new Array<TextureRegion>();
-        frames.add(new TextureRegion(screen.getAtlas().findRegion("BUTTERDEFEATu"), 0, 0, 48, 64));
+        frames.add(new TextureRegion(screen.getAtlas().findRegion("pinkk"), 0, 0, 16, 16));
         walkAnimation = new Animation<TextureRegion>(0.4f, frames);
         stateTime = 0;
         revTime = 0;
-        setBounds(getX(), getY(), 32 / PaintRush.PPM, 64 / PaintRush.PPM);
+        setBounds(getX(), getY(), 16 / PaintRush.PPM, 16 / PaintRush.PPM);
         timeCount = 0;
+        if (status == 1) {
+            blobVelocity = new Vector2(3.0f, 0);
+        }
+        else if (status == 0) {
+            blobVelocity = new Vector2(0, 3.0f);
+        }
     }
 
     public void update(float dt) {
         stateTime += dt;
         revTime += dt;
-        if (revTime >= 1) {
-            reverseVelocity(true, false);
+        if (revTime >= 0.25f) {
+            b2body.setLinearVelocity(0, 0);
+        }
+        else {
+            b2body.setLinearVelocity(blobVelocity);
+        }
+        if (revTime >= 1f) {
+            if (status == 1) {
+                reverseBlobVelocity(true, false);
+            }
+            else if (status == 0) {
+                reverseBlobVelocity(false, true);
+            }
             revTime--;
         }
-        b2body.setLinearVelocity(velocity);
         setPosition(b2body.getPosition().x - getWidth() / 2, b2body.getPosition().y - getHeight() / 2);
         setRegion(walkAnimation.getKeyFrame(stateTime, true));
     }
@@ -59,7 +82,7 @@ public class Blob extends Enemy {
 
         FixtureDef fdef = new FixtureDef();
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(15 / PaintRush.PPM, 30 / PaintRush.PPM);  // hit-box size
+        shape.setAsBox(8 / PaintRush.PPM, 8 / PaintRush.PPM);  // hit-box size
 //        CircleShape shape = new CircleShape();
 //        shape.setRadius(7 / PaintRush.PPM);
         fdef.filter.categoryBits = PaintRush.ENEMY_BIT;
@@ -72,5 +95,14 @@ public class Blob extends Enemy {
         fdef.shape = shape;
         b2body.createFixture(fdef).setUserData(this);
 
+    }
+
+    public void reverseBlobVelocity(boolean x, boolean y) {
+        if (x) {
+            blobVelocity.x = -blobVelocity.x;
+        }
+        if (y) {
+            blobVelocity.y = -blobVelocity.y;
+        }
     }
 }

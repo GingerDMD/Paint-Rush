@@ -44,6 +44,10 @@ public class WorldContactListener implements ContactListener {
             case PaintRush.TOAST_BIT | PaintRush.ENEMY_BIT:
                 Gdx.app.log("DIE TOAST", "Die");
                 break;
+            case PaintRush.ENEMY_BIT | PaintRush.ENEMY_BIT:
+                ((Enemy)fixA.getUserData()).reverseVelocity(true, false);
+                ((Enemy)fixB.getUserData()).reverseVelocity(true, false);
+                break;
         }
     }
 

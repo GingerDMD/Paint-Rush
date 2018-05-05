@@ -123,16 +123,3 @@ purp
   orig: 64, 64
   offset: 0, 0
   index: -1
-
-Toastanim.png
-size: 1024,64
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
-pack/Toastanim
-  rotate: false
-  xy: 0, 0
-  size: 1024, 64
-  orig: 1024, 64
-  offset: 0, 0
-  index: -1

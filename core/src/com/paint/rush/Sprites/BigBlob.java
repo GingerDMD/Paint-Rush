@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
@@ -13,53 +14,44 @@ import com.badlogic.gdx.utils.Array;
 import com.paint.rush.PaintRush;
 import com.paint.rush.Screens.PlayScreen;
 
-import java.util.Random;
 import java.util.Timer;
 
 /**
- * Created by preston on 3/14/18.
+ * Created by preston on 5/05/18.
  */
 
-public class Butter extends Enemy {
+public class BigBlob extends Enemy {
 
     private float stateTime;
     private float revTime;
     private Animation<TextureRegion> walkAnimation;
     private Array<TextureRegion> frames;
     private int timeCount;
+    private Vector2 blobVelocity;
+    private TextureRegion blobStand;
+    private boolean runningRight;
 
-    public Butter(PlayScreen screen, float x, float y) {
+    public BigBlob(PlayScreen screen, float x, float y) {
         super(screen, x, y);
         frames = new Array<TextureRegion>();
-        Random r = new Random();
-        int num = r.nextInt(4);
-        if (num == 0) {
-            frames.add(new TextureRegion(screen.getAtlas().findRegion("BUTTERDEFEATu"), 0, 0, 48, 64));
-        }
-        else if (num == 1) {
-            frames.add(new TextureRegion(screen.getAtlas().findRegion("BUTTERGUY50u"), 0, 0, 48, 64));
-        }
-        else if (num == 2) {
-            frames.add(new TextureRegion(screen.getAtlas().findRegion("BUTTERGUYMADu"), 0, 0, 48, 64));
-        }
-        else if (num == 3) {
-            frames.add(new TextureRegion(screen.getAtlas().findRegion("BUTTERGUYSADu"), 0, 0, 48, 64));
-        }
+        frames.add(new TextureRegion(screen.getAtlas().findRegion("purp"), 0, 0, 64, 64));
         walkAnimation = new Animation<TextureRegion>(0.4f, frames);
         stateTime = 0;
         revTime = 0;
-        setBounds(getX(), getY(), 32 / PaintRush.PPM, 64 / PaintRush.PPM);
+        setBounds(getX(), getY(), 64 / PaintRush.PPM, 64 / PaintRush.PPM);
         timeCount = 0;
+        blobVelocity = new Vector2(0.3f, 0);
+        runningRight = true;
     }
 
     public void update(float dt) {
         stateTime += dt;
         revTime += dt;
-        if (revTime >= 1) {
-            reverseVelocity(true, false);
-            revTime--;
+        if (revTime >= 2.5f) {
+            reverseBlobVelocity(true, false);
+            revTime -= 2.5f;
         }
-        b2body.setLinearVelocity(velocity);
+        b2body.setLinearVelocity(blobVelocity);
         setPosition(b2body.getPosition().x - getWidth() / 2, b2body.getPosition().y - getHeight() / 2);
         setRegion(walkAnimation.getKeyFrame(stateTime, true));
     }
@@ -72,10 +64,9 @@ public class Butter extends Enemy {
         b2body = world.createBody(bdef);
 
         FixtureDef fdef = new FixtureDef();
+
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(16 / PaintRush.PPM, 32 / PaintRush.PPM);  // hit-box size
-//        CircleShape shape = new CircleShape();
-//        shape.setRadius(7 / PaintRush.PPM);
+        shape.setAsBox(32 / PaintRush.PPM, 32 / PaintRush.PPM);  // hit-box size
         fdef.filter.categoryBits = PaintRush.ENEMY_BIT;
         fdef.filter.maskBits = PaintRush.GROUND_BIT |
                 PaintRush.COIN_BIT |
@@ -87,4 +78,15 @@ public class Butter extends Enemy {
         b2body.createFixture(fdef).setUserData(this);
 
     }
+
+    public void reverseBlobVelocity(boolean x, boolean y) {
+        if (x) {
+            blobVelocity.x = -blobVelocity.x;
+        }
+        if (y) {
+            blobVelocity.y = -blobVelocity.y;
+        }
+    }
+
+
 }
