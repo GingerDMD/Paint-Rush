@@ -39,6 +39,7 @@ public class PaintRush extends Game {
         manager.load("Butter_Time_deep.wav", Sound.class);
         manager.load("Jam_Up_deep.wav", Sound.class);
         manager.load("Nutty_deep.wav", Sound.class);
+        manager.load("Noice_robot.wav", Sound.class);
 		manager.finishLoading();
 		setScreen(new PlayScreen(this, "One.tmx", "8bittachankaslightimprove.mp3"));
 	}

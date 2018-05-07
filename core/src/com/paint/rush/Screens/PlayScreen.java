@@ -158,19 +158,24 @@ public class PlayScreen implements Screen{
             music.setVolume(0.0f);
         }
 
-        if (player.b2body.getPosition().x >= 3600 / PaintRush.PPM) {
+        if (player.b2body.getPosition().x >= 3600 / PaintRush.PPM && !currMap.equals("PB_Map.tmx")) {
             music.dispose();
             game.dispose();
             if (currMap.equals("One.tmx")) {
-                game.setScreen(new PlayScreen(game, "Two.tmx", "oopsiepoopsie.mp3"));
+                game.setScreen(new PlayScreen(game, "Two.tmx", "8bittoastyguy.wav"));
             }
             else if (currMap.equals("Two.tmx")) {
-                game.setScreen(new PlayScreen(game, "PB_Map.tmx", "8bittoastyguy.wav"));
+                game.setScreen(new PlayScreen(game, "PB_Map.tmx", "oopsiepoopsie.mp3"));
             }
             else {
                 game.setScreen(new PlayScreen(game, "One.tmx", "8bittachankaslightimprove.mp3"));
             }
 
+        }
+        else if (player.b2body.getPosition().x >= 3600 / PaintRush.PPM && currMap.equals("PB_Map.tmx")) {
+            Sound robot;
+            robot = PaintRush.manager.get("Noice_robot.wav", Sound.class);
+            robot.play();
         }
         gamecam.position.x = player.b2body.getPosition().x;
 
